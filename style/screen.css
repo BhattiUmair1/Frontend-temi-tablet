@@ -145,35 +145,6 @@ figure {
   margin: 0 0 var(--global-whitespace-xs);
 }
 
-ul,
-ol {
-  padding-left: 24px;
-}
-
-li ul,
-li ol {
-  margin-bottom: 0;
-}
-
-blockquote {
-  font-style: normal;
-  font-size: 23px;
-  line-height: calc(var(--global-baseline) * 5);
-  margin: 0 0 var(--global-whitespace-md);
-}
-
-blockquote * {
-  font-size: inherit;
-  line-height: inherit;
-}
-
-figcaption {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  margin-top: 8px;
-}
-
 hr {
   border: 0;
   height: 1px;
@@ -288,7 +259,7 @@ a:active {
 
 /*
       Component: Message
-  */
+*/
 .c-message {
   padding: var(--global-whitespace-xl);
   max-width: 42rem;
@@ -307,7 +278,7 @@ a:active {
 
 /*
       Component: Robot
-  */
+*/
 
 .c-robot {
   min-width: 300px;
@@ -330,134 +301,6 @@ a:active {
 /*------------------------------------*\
   #UTILITIES
   \*------------------------------------*/
-/*
-      Utilities: spacing
-      ---
-      Utility classes to put specific margins and paddings onto elements
-  */
-
-.u-pt-clear {
-  padding-top: 0 !important;
-}
-
-.u-mb-clear {
-  margin-bottom: 0 !important;
-}
-
-.u-mb-xxs {
-  margin-bottom: var(--global-whitespace-xxs) !important;
-}
-
-.u-mb-xs {
-  margin-bottom: var(--global-whitespace-xs) !important;
-}
-
-.u-mb-sm {
-  margin-bottom: var(--global-whitespace-sm) !important;
-}
-
-.u-mb-md {
-  margin-bottom: var(--global-whitespace-md) !important;
-}
-
-.u-mb-lg {
-  margin-bottom: var(--global-whitespace-lg) !important;
-}
-
-.u-mb-xl {
-  margin-bottom: var(--global-whitespace-xl) !important;
-}
-
-/*
-      Utilities: max-width
-      ---
-      Utility classes to put specific max widths onto elements
-  */
-
-.u-max-width-xs {
-  max-width: 27em !important;
-}
-
-.u-max-width-sm {
-  max-width: 39em !important;
-}
-
-.u-max-width-md {
-  max-width: 50em !important;
-}
-
-.u-max-width-lg {
-  max-width: 63.5em !important;
-}
-
-.u-max-width-none {
-  max-width: none !important;
-}
-
-/*
-      Utilities: align
-      ---
-      Utility classes align text or components
-  */
-
-.u-align-text-center {
-  text-align: center;
-}
-
-.u-align-center {
-  margin: 0 auto;
-}
-
-/*
-      Utilities: text
-      Utility classes to create smaller or bigger test
-  */
-
-.u-text-xs {
-  font-size: calc(11rem / var(--global-root-font-size));
-}
-
-.u-text-sm {
-  font-size: calc(13rem / var(--global-root-font-size));
-  line-height: calc(var(--global-baseline) * 4);
-}
-
-/*
-      Utilities: span
-      Utility classes to span grid items across the x and y axis
-  */
-
-/* x: horizontal */
-
-@media (min-width: 62em) {
-  .u-x-span-3-bp3 {
-    grid-column: span 3;
-  }
-
-  .u-x-span-4-bp3 {
-    grid-column: span 4;
-  }
-
-  .u-x-span-6-bp3 {
-    grid-column: span 6;
-  }
-
-  .u-x-span-8-bp3 {
-    grid-column: span 8;
-  }
-
-  .u-x-span-9-bp3 {
-    grid-column: span 9;
-  }
-}
-
-/* y: vertical */
-
-@media (min-width: 62em) {
-  .u-y-span-2-bp3 {
-    grid-row: span 2;
-  }
-}
 
 .u-y-1 {
   grid-row: 1;
@@ -478,4 +321,68 @@ a:active {
 .u-y-6 {
   grid-row: 7;
   grid-column: 2;
+}
+
+/*------------------------------------*\
+  #MEDIA
+  \*------------------------------------*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+          http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  /*
+      * Don't show links that are fragment identifiers,
+      * or use the `javascript:` pseudo protocol
+      */
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+      * Printing Tables:
+      * http://css-discuss.incutio.com/wiki/Printing_Tables
+      */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
