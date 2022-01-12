@@ -199,24 +199,6 @@ a:active {
   color: var(--global-color-beta);
 }
 
-a:hover,
-a:focus {
-  color: var(--global-color-alpha);
-}
-
-label,
-input {
-  display: block;
-}
-
-select {
-  width: 100%;
-}
-
-input::placeholder {
-  color: var(--global-color-neutral-light);
-}
-
 /*------------------------------------*\
   #OBJECTS
   \*------------------------------------*/
@@ -243,63 +225,6 @@ input::placeholder {
   margin-right: auto;
   max-width: 78em; /* 78 * 15px = 1170 */
   width: 100%;
-}
-
-/*
-      Objects: List
-      ---
-      Small reusable object to remove default list styling from lists
-  */
-
-.o-list {
-  list-style: none;
-  padding: 0;
-}
-
-/*
-      Object: Button reset
-      ---
-      Small button reset object
-  */
-
-.o-button-reset {
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  background: transparent;
-
-  /* inherit font & color from ancestor */
-  color: inherit;
-  font: inherit;
-
-  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-  line-height: normal;
-
-  /* Corrects font smoothing for webkit */
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
-
-  /* Corrects inability to style clickable `input` types in iOS */
-  -webkit-appearance: none;
-}
-
-/*
-      Object: Hide accessible
-      ---
-      Accessibly hide any element
-  */
-
-.o-hide-accessible {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 
 /*------------------------------------*\
@@ -405,21 +330,6 @@ input::placeholder {
 /*------------------------------------*\
   #UTILITIES
   \*------------------------------------*/
-
-/*
-      Utilities: color
-      ---
-      Utility classes to put specific colors onto elements
-  */
-
-.u-color-neutral {
-  color: var(--global-color-neutral);
-}
-
-.u-color-neutral-dark {
-  color: var(--global-color-neutral-dark);
-}
-
 /*
       Utilities: spacing
       ---
@@ -568,103 +478,4 @@ input::placeholder {
 .u-y-6 {
   grid-row: 7;
   grid-column: 2;
-}
-
-/*------------------------------------*\
-  #MEDIA
-  \*------------------------------------*/
-
-/*
-      Media Queries
-      ---
-      EXAMPLE Media Queries for Responsive Design.
-      These examples override the primary ('mobile first') styles.
-      USE THEM INLINE!
-  */
-
-/* Extra small devices (portrait phones, less than 576px)
-  No media query since this is the default in mobile first design
-  */
-
-/* Small devices (landscape phones, 576px and up)
-  @media (min-width: 576px) {}
-  */
-
-/* Medium devices (tablets, 768px and up)
-  @media (min-width: 768px) {}
-  */
-
-/* Large devices (landscape tablets, desktops, 62em and up)
-  @media (min-width: 62em) {}
-  */
-
-/* Extra large devices (large desktops, 1200px and up)
-  @media (min-width: 1200px) {}
-  */
-
-/*
-      Print styles.
-      ---
-      Inlined to avoid the additional HTTP request:
-      http://www.phpied.com/delay-loading-your-print-css/
-  */
-
-@media print {
-  *,
-  *:before,
-  *:after {
-    background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster:
-          http://www.sanbeiji.com/archives/953 */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-  a[href]:after {
-    content: ' (' attr(href) ')';
-  }
-  abbr[title]:after {
-    content: ' (' attr(title) ')';
-  }
-  /*
-      * Don't show links that are fragment identifiers,
-      * or use the `javascript:` pseudo protocol
-      */
-  a[href^='#']:after,
-  a[href^='javascript:']:after {
-    content: '';
-  }
-  pre {
-    white-space: pre-wrap !important;
-  }
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-  /*
-      * Printing Tables:
-      * http://css-discuss.incutio.com/wiki/Printing_Tables
-      */
-  thead {
-    display: table-header-group;
-  }
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
 }
