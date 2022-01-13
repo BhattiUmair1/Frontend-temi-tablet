@@ -240,10 +240,8 @@ a:active {
   */
 
 .c-camera {
-  margin: var(--global-whitespace-md);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 600px;
+  margin: auto;
 }
 
 /*
