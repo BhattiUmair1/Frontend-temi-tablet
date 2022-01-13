@@ -49,6 +49,5 @@ const init = () => {
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM geladen');
-  init();
   getOnlineAPI();
 });
