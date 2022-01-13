@@ -25,8 +25,6 @@ const getOnlineAPI = async () => {
 };
 
 const checkValidity = (code) => {
-  // for testing
-  code = "af1b5fdd-3293-4f4c-bb38-a1890c882512"
   console.log(code);
   console.log(afspraakJson);
   if (afspraakJson.indexOf(code) >= 0) {
