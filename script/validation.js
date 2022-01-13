@@ -29,11 +29,19 @@ const checkValidity = (code) => {
   console.log(afspraakJson);
   if (afspraakJson.indexOf(code) >= 0) {
     console.log('Code geldig');
-    window.location.href = 'mainpage.html';
+    sleep(1000).then(() => {
+      window.location.href = 'mainpage.html';
+    });
   } else {
     console.log('Code niet geldig');
-    window.location.href = 'error.html';
+    sleep(1000).then(() => {
+      window.location.href = 'error.html';
+    });
   }
+};
+
+const sleep = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
 };
 
 document.addEventListener('DOMContentLoaded', function () {
