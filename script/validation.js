@@ -42,7 +42,13 @@ const sleep = (time) => {
   return new Promise((resolve) => setTimeout(resolve, time));
 };
 
+const init = () => {
+  htmlCamera = document.getElementById('qr-reader__dashboard');
+  htmlCamera.style.display = 'none';
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM geladen');
+  init();
   getOnlineAPI();
 });
