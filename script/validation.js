@@ -25,13 +25,13 @@ const getOnlineAPI = async () => {
 };
 
 const checkValidity = (code) => {
+  // for testing
+  code = "af1b5fdd-3293-4f4c-bb38-a1890c882512"
   console.log(code);
   console.log(afspraakJson);
   if (afspraakJson.indexOf(code) >= 0) {
     console.log('Code geldig');
-    sleep(1000).then(() => {
-      window.location.href = 'mainpage.html';
-    });
+    window.location.href = `mainpage.html?afspraakId=${code}`;
   } else {
     console.log('Code niet geldig');
     sleep(1000).then(() => {

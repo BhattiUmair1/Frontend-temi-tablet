@@ -1,16 +1,22 @@
-let message
+let message, naamBezoeker;
+let afspraakId;
 
 // hardcoded json for testing
 // zogezegd payload van message uit backend (opties: KLEEDKAMER + ONDERWEG, SPORTSCUBE + ONDERWEG, alle andere gevallen => default welkom message)
 let json = {
-    "locatie" : "sportscube"
+    "locatie" : null
 }
 
-function changeMessage(jsonObject) {
+
+const changeMessage = async (jsonObject) => {
     // jsonObject is dan de payload van de message
     console.log(jsonObject);
 
+    let bezoekersData = await getVisitorData(afspraakId);
+    console.log(bezoekersData);
+
     const locatie = jsonObject["locatie"];
+
     let htmlString = '';
 
     if (locatie == "kleedkamer"){
@@ -36,17 +42,34 @@ function changeMessage(jsonObject) {
         <p class="c-instruction">Wij gaan naar de Sportscube</p>
         `;
     }
+    else {
+        naamBezoeker.innerHTML = `${bezoekersData.voornaam}`;
+    }
 
     // voorkomt dat welkom message wordt overgeschreven
-    if (htmlString != ''){
+
+    if (locatie != null){
         message.innerHTML = htmlString;
     }
+}
+
+const get = (url) => fetch(url).then((r) => r.json());
+
+const getVisitorData = async (id) => {
+    const endpoint = `https://bezoekersapi.azurewebsites.net/api/afspraken/${id}`;
+    const response = await get(endpoint);
+
+    return response;
 }
 
 document.addEventListener("DOMContentLoaded", function(){
     console.log("DOMContent loaded");
 
     message = document.querySelector(".js-message");
+    naamBezoeker = document.querySelector(".js-naam");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    afspraakId = urlParams.get("afspraakId");
 
     // event triggered functie (socket.io?) => moet nog geadd worden
     // volgende functie komt dan in de event listener
