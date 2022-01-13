@@ -29,8 +29,10 @@ const checkValidity = (code) => {
   console.log(afspraakJson);
   if (afspraakJson.indexOf(code) >= 0) {
     console.log('Code geldig');
+    window.location.href = 'mainpage.html';
   } else {
     console.log('Code niet geldig');
+    window.location.href = 'error.html';
   }
 };
 
