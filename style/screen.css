@@ -218,12 +218,6 @@ a:active {
   justify-content: center;
   align-items: center;
 }
-/*
-      Component: Logo
-  */
-
-.c-logo {
-}
 
 /*
       Component: Startscherm
@@ -240,7 +234,7 @@ a:active {
   */
 
 .c-camera {
-  width: 600px;
+  width: 37.5rem;
   margin: auto;
 }
 
@@ -279,15 +273,15 @@ a:active {
 */
 
 .c-robot {
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 18.75rem;
+  max-width: 25rem;
   fill: var(--global-color-neutral-light);
 }
 
 .c-robot-welkom {
   margin: auto;
-  min-width: 300px;
-  max-width: 350px;
+  min-width: 18.75rem;
+  max-width: 21.75rem;
   fill: var(--global-color-alpha);
 }
 
